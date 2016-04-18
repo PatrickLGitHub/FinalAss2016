@@ -94,7 +94,7 @@ namespace FinalAssment2016
                 path.Push(PlayerTowerPos);
                 path.Push(new Vector2(Utilities.Utility.NextRandom(200), Utilities.Utility.NextRandom(400)));
 
-                SimpleSprite s = new SimpleSprite(Game, "Black Knight", startTowerPos, path);
+                SimpleSprite s = new SimpleSprite(Game, "fighter_sprite", startTowerPos, path);
                 _blackKnights.Add(s);
                 
             }
@@ -120,7 +120,7 @@ namespace FinalAssment2016
                 Stack<Vector2> path = new Stack<Vector2>();
                 path.Push(target);
                 path.Push(new Vector2(Utilities.Utility.NextRandom(200), Utilities.Utility.NextRandom(400)));
-                SimpleSprite s = new SimpleSprite(Game, "Black Knight", startTowerPos, path);
+                SimpleSprite s = new SimpleSprite(Game, "fighter_sprite", startTowerPos, path);
                 _blackKnights.Add(s);
                 // acticate the next one at the head of the list
                 _blackKnights.First().Active = true;
@@ -152,7 +152,7 @@ namespace FinalAssment2016
             LoadedGameContent.Sounds.Add("backing", Game.Content.Load<SoundEffect>("Backing Track wav"));
             LoadedGameContent.Sounds.Add("cannon fire", Game.Content.Load<SoundEffect>("cannon fire"));
             LoadedGameContent.Sounds.Add("Impact", Game.Content.Load<SoundEffect>("Impact"));
-            LoadedGameContent.Textures.Add("Black Knight", Game.Content.Load<Texture2D>("Black Knight"));
+            LoadedGameContent.Textures.Add("fighter_sprite", Game.Content.Load<Texture2D>("fighter_sprite"));
             LoadedGameContent.Textures.Add("cannonball", Game.Content.Load<Texture2D>("cannonball"));
             LoadedGameContent.Textures.Add("Start Tower", Game.Content.Load<Texture2D>("Start Tower"));
             LoadedGameContent.Textures.Add("End Tower", Game.Content.Load<Texture2D>("End Tower"));
@@ -181,7 +181,7 @@ namespace FinalAssment2016
                 .Where(s => !s.Stopped() && s.Name == "cannonball").ToList();
             // Get the active enemies
             var enemies = Game.Components.OfType<SimpleSprite>()
-                .Where(s => !s.Stopped() && s.Name == "Black Knight").ToList();
+                .Where(s => !s.Stopped() && s.Name == "fighter_sprite").ToList();
 
             // check collisions between cannon balls and enemies
             foreach (var b in activeCannonBalls)
